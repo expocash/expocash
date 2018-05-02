@@ -33,9 +33,9 @@ if [ "${BITCOIN_GENBUILD_NO_GIT}" != "1" -a -e "$(which git 2>/dev/null)" -a "$(
         git diff-index --quiet HEAD -- && DESC=$RAWDESC
     fi
 
-    # otherwise generate suffix from git, i.e. string like "59887e8-dirty"
+    # otherwise generate suffix from git, i.e. string like "59887e8"
     SUFFIX=$(git rev-parse --short HEAD)
-    git diff-index --quiet HEAD -- || SUFFIX="$SUFFIX-dirty"
+    git diff-index --quiet HEAD -- || SUFFIX="$SUFFIX"
 fi
 
 if [ -n "$DESC" ]; then
